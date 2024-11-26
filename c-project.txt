@@ -1,0 +1,109 @@
+#include<stdio.h>
+#include<math.h>
+void arthmeticoperations()
+{
+	double a,b,result;
+	int  operator;
+	printf("choose any arthmetic operator\n 1.+\n 2.-\n 3.*\n 4./ \n");
+	scanf("%d",&operator);
+	printf("Enter two numbers to perform Arthmetic operation");
+	scanf("%lf %lf",&a,&b);
+	switch(operator)
+	{
+		case 1:result=a+b;
+		break;
+		case 2:result=a-b;
+		break;
+		case 3:result=a*b;
+		break;
+		case 4:
+		if(b!=0)
+		{	
+			result=a/b;
+		}
+		else
+		{
+			printf("division not possible\n");
+			return;
+		}
+		break;
+		default:printf("invalid Arthmetic Operator");
+	}
+	printf("Result:%.2lf\n",result);
+}
+void trigonometricOperations()
+{
+	double angle,result,radians;
+	int choice;
+	printf("Choose any Trigonometric Operation\n");
+	printf(" 1.sine\n 2.cosine\n 3.tangent\n");
+	printf("Enter your choice:");
+	scanf("%d",&choice);
+	printf("Enter angle ");
+	scanf("%lf",&angle);
+	radians=angle*(M_PI/180.0);
+	switch(choice)
+	{
+		case 1:result=sin(radians);
+		break;
+		case 2:result=cos(radians);
+		break;
+		case 3:result=tan(radians);
+		break;
+		default:printf("invalid choice");
+	}
+	printf("Result:%.2lf\n",result);
+}
+void logarithmicOperations()
+{
+	double num,result;
+	int choice;
+	printf("choose a logarthemic operation\n");
+	printf(" 1.Natural logarithm\n 2.Base 10 Logarithm");
+	scanf("%d",&choice);
+	printf("Enter a number:");
+	scanf("%lf",&num);
+	if(num<=0)
+	{
+		printf("logarthim is undefined for 0 or negative numbers")  ;
+	}
+	switch(choice)
+	{
+		case 1:result=log(num);
+		break;
+		case 2:result=log10(num);
+		break;
+		default:printf("Invalid choice");
+	}
+	printf("Result:%.2lf\n",result);
+}
+int main()
+{
+	int choice;
+
+	while(1)
+	{
+		printf("*********CALCULATOR**********\n");
+		printf("1. Arthmetic Operations\n");
+		printf("2. Trigonometric opertions\n");
+		printf("3. logarithmic Operations\n");
+		printf("4. Exit\n");
+		printf("Enter your choice:");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1:arthmeticoperations();
+			break;
+			case 2:trigonometricOperations();
+			break;
+			case 3:logarithmicOperations();
+			break;
+			case 4:printf("exiting..\n");return 0;
+			break;
+			default:printf("Invalid choice please try again...");
+		}
+	}
+	 
+	 return 0;
+}
+
